@@ -1,0 +1,322 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.logo{
+    padding: 15px;
+    background-color: #e2f3f4;
+    border-radius: 25px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    cursor: pointer;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: ffffff;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1000;
+    position-anchor: inherit;
+    top: 0;
+}
+.navbar{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 20px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    align-items: center;
+    
+}
+.navbar ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 20px;
+    border-radius: 25px;
+    padding: 15px;
+}
+.navbar ul{
+    list-style-type: none;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #0ecee4;
+    padding: 10px;
+    transition: 0.25s ease-out;
+}
+body{
+    background-image: linear-gradient(135deg, #fef0ed, #ace3f8);
+    height: 140vh;
+}
+span .icon{
+    color: #6dc7d1;
+    padding-right: 10px;
+}
+.navbar ul li :hover{
+    background-color: #0ecee4;
+    border-radius: 7px;
+    color: black;
+}
+.navbar ul li.active a{
+    background-color: #0ecee4;
+    padding: 10px;
+    border-radius: 7px;
+    color: black;
+}
+.container{
+    height: 80vh;
+    background-color: #e2f3f4;
+    margin: 20px;
+    background: #ccf8f4;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 20px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.details{
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16.8px);
+    -webkit-backdrop-filter: blur(16.8px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 25px;
+    display: flex;
+    flex: 1;
+    width: fit-content;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 70px;
+    font-size: 25px;
+}
+.details h1,h3{
+    text-align: center;
+}
+.details:hover h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s  infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 40% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(0, 0, 0); }
+}
+.img{
+    flex: 1;
+    background-image: url('kuroko.png');
+    width: 450px;
+    height: 450px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 45px;
+}
+.icons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.icons i{
+    font-size: xx-large;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 1px;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
+.icons i:hover{
+    background-color: black;
+    border: none;
+    box-shadow: 0px 0px 14px;
+    transform: scale(1.5);
+    color: aqua;
+}
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+.card{
+    width: 150px;
+    height: 150px;
+    border-radius: 25px;
+    align-content: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+.skills{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card i{
+    font-size: 50px;
+}
+.card:hover{
+    background-color: black;
+    box-shadow: 0 8px 32px 0 #6dc7d1;
+    transform: scale(1.2);
+}
+.card:hover>i{
+    font-size: 70px;
+    color: aqua;
+    text-shadow: 0px 0px 7px aqua;
+}
+h2{
+    color: darkslategray;
+}
+.roles{
+    color: dimgrey;
+    text-align: center;
+}
+.exp>p{
+    display:none;
+    font-weight: 500;
+}
+.exp>li{
+    display:none;
+    font-weight: 500;
+}
+.exp ul li{
+    list-style-type: none;
+}
+.hob ul li{
+    list-style-type: none;
+}
+.exp:hover p{
+    display: block;
+    transition: 0.5s ease-out;
+}
+.objective,.skills,.exp,.edu,.hob{
+    font-weight: 500;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.hob:hover{
+    border: 2px solid rgb(0, 238, 255);
+    font-size: larger;
+    margin: 8px;
+    transition: 0.25s ease-in-out;
+}
+.objective:hover{
+    border: 2px solid rgb(0, 238, 255);
+    font-size: larger;   
+    margin: 8px;
+    transition: 0.25s ease-in-out;
+}
+.skills:hover{
+    transform: scale(1.2);
+    border: 2px solid rgb(0, 238, 255);
+    font-size: larger;
+    margin: 8px;
+    transition: 0.25s ease-in-out;
+}
+.exp:hover{
+    border: 2px solid rgb(0, 238, 255);
+    font-size: larger;
+    margin: 8px;
+    transition: 0.25s ease-in-out;
+}
+.edu:hover{
+    border: 2px solid rgb(0, 238, 255);
+    font-size: larger;
+    margin: 8px;
+    transition: 0.25s ease-in-out;
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+td,th{
+    padding: 8px;
+    border-bottom: 1px solid black;
+}
+tr:hover{
+    background-color: aqua;
+    font-weight: bolder;
+    transition: 1s ease;
+}
+td:active{
+    border:1px solid black;
+    color: grey;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid white;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    padding: 20px;
+    border-radius: 14px;
+    font-size: 25px;
+}   
+input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    width: 350px;
+}
+.l{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+}
+button{
+    margin-top: 20px;
+    background: transparent;
+    padding: 15px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.30s all;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+
+}
+button:hover{
+    transform: translate(-5px,-5px);
+    background-color: black;
+    color: aqua;
+    text-shadow: 2px 2px 24px aqua;
+    font-size: 20px;
+}
