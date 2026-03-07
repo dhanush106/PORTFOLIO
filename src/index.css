@@ -29,8 +29,8 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -116,7 +116,7 @@ h6 {
     background: linear-gradient(to right,
             rgba(255, 255, 255, 1),
             rgba(255, 255, 255, 1));
-    -webkit-background-clip: text;
+    /* -webkit-background-clip: text; */
     -webkit-text-fill-color: transparent;
 }
 
@@ -136,6 +136,34 @@ h6 {
     z-index: 10;
     mix-blend-mode: plus-lighter;
     transition: opacity 0.5s ease;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-scroll-left {
+    animation: scrollLeft 20s linear infinite;
+}
+
+.animate-scroll-right {
+    animation: scrollRight 20s linear infinite;
 }
 
 /* Glass Effect */
@@ -197,28 +225,18 @@ h6 {
     border-color: var(--border-hover);
 }
 
-.nav {
-    border-color: #ff6a00;
+.glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all .3s ease;
 }
 
-.nav:hover {
-    color: #ff6a00;
-    transform: translateY(-2px);
-    
-}
-
-.nav::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #ff6a00;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 200;
-    height: 50px;
-    width: 20px;
-    border-radius: 50%;
+.glass:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 106, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .5),
+        0 0 20px rgba(255, 106, 0, .15);
 }
 
 /* Responsive Overrides */

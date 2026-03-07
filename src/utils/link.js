@@ -5,3 +5,5 @@ const links = {
     "hackerrank": "https://www.hackerrank.com/profile/dhanush106",
     "email": "[EMAIL_ADDRESS]",
 }
+
+export default links;

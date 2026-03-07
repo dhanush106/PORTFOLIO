@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Hero from './pages/Hero';
 import Footer from './components/Footer';
 import About from './pages/About';
+import Projects from './pages/Projects';
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Projects />
       </main>
 
       <Footer />
