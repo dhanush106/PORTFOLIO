@@ -5,49 +5,43 @@ import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 const projects = [
     {
         id: 1,
-        title: "Nebula Neural Engine",
-        category: "AI & Cloud Infrastructure",
-        year: "2026",
+        title: "SemSync - AI Based Semester planner",
+        category: "Education, SaaS",
+        year: "2025",
+        github: "https://github.com/dhanush106/SemSync",
+        live: "https://semsync-7pz3.onrender.com/",
         description:
-            "A distributed training platform designed to optimize large-scale LLM inference across multi-cloud environments.",
-        metrics: [
-            { label: "LATENCY REDUCTION", value: "84%" },
-            { label: "THROUGHPUT", value: "12GB/s" }
-        ],
-        tech: ["React", "Express", "Node", "MongoDB", "CUDA"],
+            "A Web Application that helps students to plan their semester based on their interests and skills with AI And a SAAS Based Dashboard",
+        tech: ["React", "Express", "Node", "MongoDB", "Ollama", "Tailwindcss", "Framer Motion", "shadcn/ui", "Recharts"],
         image:
             "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: 2,
-        title: "Quantum Analytics",
-        category: "FinTech & Data Science",
+        title: "AI Resume Analyzer",
+        category: "AI, SaaS",
         year: "2025",
+        github: "https://github.com/dhanush106/Ai-Resume-Analyzer",
+        live: "https://ai-resume-analyzer-two-zeta.vercel.app/",
         description:
-            "Real-time financial intelligence dashboard utilizing predictive algorithms to forecast market trends.",
-        metrics: [
-            { label: "ROI INCREASE", value: "62%" },
-            { label: "DATA POINTS", value: "2.4M+" }
-        ],
-        tech: ["Next.js", "Python", "Tailwind", "D3.js"],
+            "Serverless AI Based Resume Analyzer that helps students to analyze their resume and get suggestions to improve it.",
+        tech: ["React.js", "Tailwindcss", "Puter.js"],
         image:
             "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2070&auto=format&fit=crop"
     },
-    {
-        id: 3,
-        title: "Horizon Marketplace",
-        category: "E-Commerce & AR",
-        year: "2025",
-        description:
-            "An immersive shopping experience featuring headless commerce architecture and augmented reality previews.",
-        metrics: [
-            { label: "USER ENGAGEMENT", value: "+400%" },
-            { label: "CONVERSION", value: "12.5%" }
-        ],
-        tech: ["React", "Three.js", "PostgreSQL", "Tailwind"],
-        image:
-            "https://images.unsplash.com/photo-1633177317976-3f9bc45e1d1d?q=80&w=2010&auto=format&fit=crop"
-    }
+    // {
+    //     id: 3,
+    //     title: "Horizon Marketplace",
+    //     category: "E-Commerce & AR",
+    //     year: "2025",
+    //     github: "",
+    //     live: "",
+    //     description:
+    //         "An immersive shopping experience featuring headless commerce architecture and augmented reality previews.",
+    //     tech: ["React", "Three.js", "PostgreSQL", "Tailwind"],
+    //     image:
+    //         "https://images.unsplash.com/photo-1633177317976-3f9bc45e1d1d?q=80&w=2010&auto=format&fit=crop"
+    // }
 ];
 
 function ProjectCard({ project }) {
@@ -100,14 +94,16 @@ function ProjectCard({ project }) {
                 <div className="flex gap-3">
 
                     <a
-                        href="#"
+                        href={project.github}
+                        target="_blank"
                         className="text-lg px-4 py-1 rounded-md border border-white/20 text-white hover:bg-white/10 hover:shadow-lg hover:shadow-[#ff6a00]"
                     >
                         GitHub
                     </a>
 
                     <a
-                        href="#"
+                        href={project.live}
+                        target="_blank"
                         className="text-lg px-4 py-1 rounded-full bg-[#ff6a00] text-black font-semibold hover:shadow-lg hover:shadow-amber-600"
                     >
                         Live Demo
@@ -159,25 +155,25 @@ function ProjectCard({ project }) {
 
                     </div>
 
-                    <div className="flex gap-10">
+                    {/* <div className="flex gap-10">
 
                         {project.metrics.map((m, i) => (
                             <div key={i}>
-                                <div className="text-2xl font-bold text-white">{m.value}</div>
+                                <div className="text-2xl flex font-bold text-white">{m.value}</div>
                                 <div className="text-white/20 text-[10px] uppercase">
                                     {m.label}
                                 </div>
                             </div>
                         ))}
 
-                    </div>
+                    </div> */}
 
                 </div>
 
 
                 {/* IMAGE */}
 
-                <div className="relative rounded-[20px] overflow-hidden bg-white/5">
+                <div className="relative rounded-[20px] overflow-hidden sm:bg-[url(project.image)] bg-white/5">
 
                     <img
                         src={project.image}
@@ -211,11 +207,11 @@ export default function Projects() {
     }, [stackCompleted]);
 
     return (
-        <section id="projects" className="bg-[#030303] py-40">
+        <section id="projects" className="bg-[#030303]">
             <div className="container-wide">
-                <div className="flex flex-col items-center text-center mb-32">
+                <div className="flex flex-col items-center text-center mb-3">
                     <span className="text-[#ff6a00] text-xs font-bold tracking-[0.4em] uppercase mb-6">
-                        Selected Projects
+                        Selected Project
                     </span>
 
                     <h2 className="text-6xl text-white font-bold tracking-tight leading-tight">
@@ -227,13 +223,13 @@ export default function Projects() {
 
                 <ScrollStack
                     useWindowScroll
-                    itemDistance={80}
+                    itemDistance={200}
                     itemStackDistance={20}
                     itemScale={0.03}
                     baseScale={0.92}
                     rotationAmount={0}
                     blurAmount={0}
-                    stackPosition="30%"
+                    stackPosition="25%"
                     scaleEndPosition="12%"
                 >
                     {projects.map((project) => (

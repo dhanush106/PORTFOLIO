@@ -7,6 +7,8 @@ import Hero from './pages/Hero';
 import Footer from './components/Footer';
 import About from './pages/About';
 import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+
 
 function App() {
   useEffect(() => {
@@ -43,6 +45,7 @@ function App() {
         <Hero />
         <About />
         <Projects />
+        <Contact />
       </main>
 
       <Footer />

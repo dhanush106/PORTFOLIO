@@ -208,77 +208,63 @@ export default function About() {
                     </div>
 
                     {/* Social Links */}
-                    {/* <div className="glass lg:col-span-4 rounded-2xl p-8 flex flex-wrap justify-center gap-6">
+                    <div className="glass lg:col-span-4 rounded-2xl px-8 py-6 flex items-center justify-between">
 
-                        {["GitHub", "LinkedIn", "Twitter", "Email"].map((link) => (
+                        {/* Left Section */}
+                        <div>
+                            <h3 className="text-lg font-semibold text-white">
+                                Let's Connect
+                            </h3>
 
-                            <button
-                                key={link}
-                                className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-orange-500/40 hover:bg-orange-500/10 transition"
-                            >
+                            <p className="text-sm text-gray-400 mt-1">
+                                Available for innovative projects and collaborations.
+                            </p>
+                        </div>
 
-                            </button>
 
-                        ))}
-
-                    </div> */}
-
-                    <div className="glass lg:col-span-4 rounded-2xl p-8">
-
-                        <div className="flex justify-center gap-8 flex-wrap">
+                        {/* Right Section Icons */}
+                        <div className="flex items-center gap-4">
 
                             {/* GitHub */}
                             <a
                                 href={links.github}
                                 target="_blank"
-                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
-      bg-white/5 border border-white/10 
-      hover:border-green-400/50 hover:bg-green-500/10 
-      hover:scale-105 transition duration-300"
+                                className="group w-12 h-12 flex items-center justify-center rounded-xl
+      bg-white/5 border border-white/10
+      hover:bg-orange-500/10 hover:border-orange-500/40
+      transition duration-300"
                             >
-                                <Github className="w-7 h-7 text-white group-hover:text-green-400 transition" />
-                                <span className="text-sm text-gray-300 group-hover:text-white">
-                                    GitHub
-                                </span>
+                                <Github className="w-5 h-5 text-gray-300 group-hover:text-orange-400 transition" />
                             </a>
 
                             {/* LinkedIn */}
                             <a
                                 href={links.linkedin}
                                 target="_blank"
-                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
-      bg-white/5 border border-white/10 
-      hover:border-green-400/50 hover:bg-green-500/10 
-      hover:scale-105 transition duration-300"
+                                className="group w-12 h-12 flex items-center justify-center rounded-xl
+      bg-white/5 border border-white/10
+      hover:bg-orange-500/10 hover:border-orange-500/40
+      transition duration-300"
                             >
-                                <Linkedin className="w-7 h-7 text-white group-hover:text-green-400 transition" />
-                                <span className="text-sm text-gray-300 group-hover:text-white">
-                                    LinkedIn
-                                </span>
+                                <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-orange-400 transition" />
                             </a>
 
                             {/* Email */}
                             <a
                                 href="mailto:sarpoordhanush@gmail.com"
-                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
-      bg-white/5 border border-white/10 
-      hover:border-green-400/50 hover:bg-green-500/10 
-      hover:scale-105 transition duration-300"
+                                className="group w-12 h-12 flex items-center justify-center rounded-xl
+      bg-white/5 border border-white/10
+      hover:bg-orange-500/10 hover:border-orange-500/40
+      transition duration-300"
                             >
-                                <Mail className="w-7 h-7 text-white group-hover:text-green-400 transition" />
-                                <span className="text-sm text-gray-300 group-hover:text-white">
-                                    Email
-                                </span>
+                                <Mail className="w-5 h-5 text-gray-300 group-hover:text-orange-400 transition" />
                             </a>
 
                         </div>
 
                     </div>
-
                 </div>
-
             </div>
-
-        </section>
+        </section >
     );
 }
