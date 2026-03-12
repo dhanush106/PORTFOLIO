@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 const CustomCursor = () => {
@@ -11,8 +11,14 @@ const CustomCursor = () => {
 
     const [isHovered, setIsHovered] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
+        // Detect touch devices properly
+        const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+        setIsTouchDevice(isTouch);
+        if (isTouch) return;
+
         const handleMouseMove = (e) => {
             if (!isVisible) setIsVisible(true);
             mouseX.set(e.clientX);
@@ -34,21 +40,22 @@ const CustomCursor = () => {
 
         const handleMouseOut = () => setIsHovered(false);
 
-        window.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseover', handleMouseOver);
-        document.addEventListener('mouseout', handleMouseOut);
+        window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        document.addEventListener('mouseover', handleMouseOver, { passive: true });
+        document.addEventListener('mouseout', handleMouseOut, { passive: true });
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseover', handleMouseOver);
             document.removeEventListener('mouseout', handleMouseOut);
         };
-    }, [isVisible]);
+    }, [isVisible, mouseX, mouseY]);
 
-    if (typeof window !== 'undefined' && window.innerWidth <= 768) return null;
+    if (isTouchDevice) return null;
 
     return (
         <>
+            {/* Outer ring */}
             <motion.div
                 className="fixed top-0 left-0 w-8 h-8 border border-white/20 rounded-full pointer-events-none z-[1000] -translate-x-1/2 -translate-y-1/2 overflow-hidden"
                 style={{
@@ -59,6 +66,7 @@ const CustomCursor = () => {
                     backgroundColor: isHovered ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
                     borderColor: isHovered ? 'rgba(255, 106, 0, 0.5)' : 'rgba(255, 255, 255, 0.2)'
                 }}
+                aria-hidden="true"
             >
                 {isHovered && (
                     <motion.div
@@ -71,6 +79,7 @@ const CustomCursor = () => {
                 )}
             </motion.div>
 
+            {/* Center dot */}
             <motion.div
                 className="fixed top-0 left-0 w-1 h-1 bg-[#ff6a00] rounded-full pointer-events-none z-[1000] -translate-x-1/2 -translate-y-1/2"
                 style={{
@@ -79,6 +88,7 @@ const CustomCursor = () => {
                     opacity: isVisible ? 1 : 0,
                     scale: isHovered ? 0 : 1
                 }}
+                aria-hidden="true"
             />
         </>
     );

@@ -18,6 +18,16 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [menuOpen]);
+
     const scrollTo = (e, href) => {
         e.preventDefault();
         setMenuOpen(false);
@@ -33,15 +43,18 @@ const Navbar = () => {
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${scrolled ? 'py-4 backdrop-blur-xl bg-white/10 border-b border-white/5' : 'py-8 bg-transparent'
-                    }`}
+                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${
+                    scrolled
+                        ? 'py-4 backdrop-blur-xl bg-[#030303]/80 border-b border-white/5'
+                        : 'py-8 bg-transparent'
+                }`}
             >
                 <div className="container-wide flex items-center justify-between px-6 md:px-12">
                     {/* Logo */}
                     <a
                         href="#home"
                         onClick={(e) => scrollTo(e, '#home')}
-                        className="text-lg font-heading font-black tracking-tighter text-white group"
+                        className="text-lg font-bold tracking-tighter text-white"
                     >
                         DHANUSSH <span className="text-[#ff6a00]">SHREKAR</span>
                     </a>
@@ -53,10 +66,10 @@ const Navbar = () => {
                                 key={link.href}
                                 href={link.href}
                                 onClick={(e) => scrollTo(e, link.href)}
-                                className="relative text-sm font-medium text-white/60 hover:text-white transition-colors duration-300 group nav"
+                                className="relative text-sm font-medium text-white/60 hover:text-white transition-colors duration-300 group"
                             >
                                 {link.label}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-[#ff6a00] transition-all duration-500 group-hover:width-full" />
+                                <span className="absolute -bottom-1 left-0 h-[1.5px] bg-[#ff6a00] transition-all duration-500 w-0 group-hover:w-full" />
                             </a>
                         ))}
                         <a
@@ -71,19 +84,19 @@ const Navbar = () => {
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="md:hidden relative z-[101] flex flex-col gap-1.5 p-2"
-                        aria-label="Toggle Menu"
+                        aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
                     >
                         <motion.span
                             animate={menuOpen ? { rotate: 45, y: 7.5 } : { rotate: 0, y: 0 }}
-                            className="w-6 h-[1.5px] bg-white"
+                            className="w-6 h-[1.5px] bg-white block"
                         />
                         <motion.span
                             animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className="w-6 h-[1.5px] bg-white"
+                            className="w-6 h-[1.5px] bg-white block"
                         />
                         <motion.span
                             animate={menuOpen ? { rotate: -45, y: -7.5 } : { rotate: 0, y: 0 }}
-                            className="w-6 h-[1.5px] bg-white"
+                            className="w-6 h-[1.5px] bg-white block"
                         />
                     </button>
                 </div>
@@ -94,7 +107,7 @@ const Navbar = () => {
                 {menuOpen && (
                     <motion.div
                         initial={{ x: '100%' }}
-                        animate={{ x: 0, }}
+                        animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="fixed inset-0 z-[99] bg-[#030303] flex flex-col items-center justify-center p-8 md:hidden"
@@ -108,7 +121,7 @@ const Navbar = () => {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 + i * 0.1, duration: 0.8 }}
-                                    className="text-4xl font-heading font-bold text-white tracking-tighter"
+                                    className="text-4xl font-bold text-white tracking-tighter hover:text-[#ff6a00] transition-colors"
                                 >
                                     {link.label}
                                 </motion.a>

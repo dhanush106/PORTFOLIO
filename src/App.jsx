@@ -1,4 +1,4 @@
-import { useEffect, Suspense, lazy } from 'react';
+import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 
 import CustomCursor from './components/CustomCursor';
@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-
 
 function App() {
   useEffect(() => {
