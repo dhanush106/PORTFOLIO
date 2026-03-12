@@ -1,5 +1,7 @@
 import React from "react";
 import links from "../utils/link";
+import { Github, Linkedin, Mail } from "lucide-react";
+
 
 const skills = [
     "React",
@@ -18,6 +20,8 @@ const skills = [
 ];
 
 export default function About() {
+
+    console.log(links.leetcode)
     return (
         <section className="bg-[#0a0a0a] text-white py-20 px-6">
 
@@ -190,18 +194,13 @@ export default function About() {
                         <div className="space-y-4">
 
                             <div className="flex justify-between">
-                                <span>LeetCode</span>
+                                <a href={links.leetcode} target="_blank" rel="noopener noreferrer">LeetCode</a>
                                 <span className="text-orange-500">450+ solved</span>
                             </div>
 
                             <div className="flex justify-between">
-                                <span>Codeforces</span>
-                                <span className="text-orange-500">1650 rating</span>
-                            </div>
-
-                            <div className="flex justify-between">
-                                <span>CodeChef</span>
-                                <span className="text-orange-500">4★</span>
+                                <a href="https://codeforces.com/profile/dhanush106" target="_blank" rel="noopener noreferrer">HackerRank</a>
+                                <span className="text-orange-500">5★ problem solver</span>
                             </div>
 
                         </div>
@@ -209,7 +208,7 @@ export default function About() {
                     </div>
 
                     {/* Social Links */}
-                    <div className="glass lg:col-span-4 rounded-2xl p-8 flex flex-wrap justify-center gap-6">
+                    {/* <div className="glass lg:col-span-4 rounded-2xl p-8 flex flex-wrap justify-center gap-6">
 
                         {["GitHub", "LinkedIn", "Twitter", "Email"].map((link) => (
 
@@ -217,10 +216,62 @@ export default function About() {
                                 key={link}
                                 className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 hover:border-orange-500/40 hover:bg-orange-500/10 transition"
                             >
-                                {link}
+
                             </button>
 
                         ))}
+
+                    </div> */}
+
+                    <div className="glass lg:col-span-4 rounded-2xl p-8">
+
+                        <div className="flex justify-center gap-8 flex-wrap">
+
+                            {/* GitHub */}
+                            <a
+                                href={links.github}
+                                target="_blank"
+                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
+      bg-white/5 border border-white/10 
+      hover:border-green-400/50 hover:bg-green-500/10 
+      hover:scale-105 transition duration-300"
+                            >
+                                <Github className="w-7 h-7 text-white group-hover:text-green-400 transition" />
+                                <span className="text-sm text-gray-300 group-hover:text-white">
+                                    GitHub
+                                </span>
+                            </a>
+
+                            {/* LinkedIn */}
+                            <a
+                                href={links.linkedin}
+                                target="_blank"
+                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
+      bg-white/5 border border-white/10 
+      hover:border-green-400/50 hover:bg-green-500/10 
+      hover:scale-105 transition duration-300"
+                            >
+                                <Linkedin className="w-7 h-7 text-white group-hover:text-green-400 transition" />
+                                <span className="text-sm text-gray-300 group-hover:text-white">
+                                    LinkedIn
+                                </span>
+                            </a>
+
+                            {/* Email */}
+                            <a
+                                href="mailto:sarpoordhanush@gmail.com"
+                                className="group flex flex-col items-center gap-3 px-8 py-6 rounded-xl 
+      bg-white/5 border border-white/10 
+      hover:border-green-400/50 hover:bg-green-500/10 
+      hover:scale-105 transition duration-300"
+                            >
+                                <Mail className="w-7 h-7 text-white group-hover:text-green-400 transition" />
+                                <span className="text-sm text-gray-300 group-hover:text-white">
+                                    Email
+                                </span>
+                            </a>
+
+                        </div>
 
                     </div>
 
