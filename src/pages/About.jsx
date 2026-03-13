@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import links from "../utils/link";
 import { Github, Linkedin, Mail } from "lucide-react";
+import profile from "../assets/profile.png";
 
 const skills = [
     "React", "Context API", "Zustand", "Typescript", "Next.js",
@@ -80,7 +81,7 @@ export default function About() {
                             <div className="w-20 h-20 rounded-2xl overflow-hidden mb-8 border-2 border-[#ff6a00]/20 p-1">
                                 <img
                                     className="w-full h-full object-cover rounded-xl grayscale group-hover:grayscale-0 transition-all duration-500"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn-Cm0pHyLf547MkMVFQj95lEfcbsYWWloHe-8MNP6Og8dcrwDOOhmzId9dNCAVLVDVlI7ZGa8GPX93pXwEbq1p13RU07KUTDP4dqVcLoI4jzymMp6WNR3jaMMBaln0i5MGhR2H0wAJWo75Fo9KlOl-fOgLAn981_IXEucPz0BORStBzaMlbSc5ajsit_fLYY0WZqLHnM5KRjK8wf4vh-KPrY1kqq3dRUAG1u6pl7oYBZ6YDPMbvS-0PnD-QsuidutqnJbzUkVSg"
+                                    src={profile}
                                     alt="Dhanussh Shrekar — Developer"
                                     loading="lazy"
                                     width="80"
